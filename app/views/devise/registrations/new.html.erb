@@ -3,28 +3,32 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :fist_name %><br />
+  <div><%= f.label :fist_name, "First name:" %><br />
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
-  <div><%= f.label :last_name %><br />
+  <div><%= f.label :last_name, "Last name:" %><br />
     <%= f.text_field :last_name %>
   </div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email, "Email:" %><br />
     <%= f.email_field :email %>
   </div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :cell_phone , "Cell Phone:"%><br />
+    <%= f.text_field :cell_phone %>
+  </div>
+
+  <div><%= f.label :password, "Password:" %><br />
     <%= f.password_field :password %>
   </div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation, "Password Confirm:" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div><%= f.label :role %><br />
-    <%= f.select :role, options_for_select(['seller', 'agent'])%>
+  <div><%= f.label :role, "I am a:" %><br />
+    <%= f.select :role, options_for_select([['Seller', 'seller'], ['Agent', 'agent']])%>
   </div>
 
 
