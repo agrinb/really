@@ -24,17 +24,21 @@
         <div class="navbar-collapse collapse">
           <% if user_signed_in? %>
             <div class="navbar-form navbar-right">
-              <a class="btn btn-primary btn" role="button">Sign Out &raquo;</a>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "btn btn-primary btn", role: "button" %>
           <% else  %>
-            <form class="navbar-form navbar-right" role="form">
-              <div class="form-group">
-                <input type="text" placeholder="Email" class="form-control">
-              </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+            <div class="navbar-form navbar-right" >
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email" %>
+
+    <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+
+
+  <%= f.submit "Sign in", class: "btn btn-success"%>
+<% end %>
+
             </div>
-              <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
 
             <% end %>
           </div>
@@ -46,7 +50,7 @@
 
 
   <div class="container">
-    <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+    <%= link_to "sign out", destroy_user_session_path, method: :delete  %>
     <%= link_to "sign in", new_user_session_path  %>
     <%= link_to "sign up", new_user_registration_path %>
 
