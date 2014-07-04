@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    "new house"
+    "hello world"
   end
 
 end
