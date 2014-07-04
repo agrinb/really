@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'properties#index'
-  resources :properties
 
-  devise_scope :user do
-    get "/properties/index" => "sessions#new"
+  resources :users do
+    resources :properties
   end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
