@@ -1,41 +1,117 @@
-<h2>Sign up</h2>
+<div class="container">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form role="form">
+      <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+      <hr class="colorgraph">
 
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+              <%= f.label :fist_name %>
+              <%= f.text_field :first_name, autofocus: true, id: "first_name", class: "form-control input-lg", placeholder: "First Name", tabindex: "1" %>
+            </div>
+          </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <%= f.label :last_name %>
+              <%= f.text_field :last_name, id: "last_name", class: "form-control input-lg", placeholder: "First Name", tabindex: "2" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+            <%= f.email_field :email, id: "email", class: "form-control input-lg", placeholder: "Email Address", tabindex: "3" %>
+        </div>
+
+          <div class="form-group">
+            <%= f.label :cell_phone %>
+              <%= f.text_field :cell_phone, id: "cell_phone", class: "form-control input-lg", placeholder: "Cell Phone", tabindex: "4" %>
+          </div>
+
+
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <%= f.label :password %>
+              <%= f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
+            </div>
+          </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+           <%= f.password_field :password_confirmation, id: "password_confirmation", class: "form-control input-lg", placeholder: "Password Confirm", tabindex: "6" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+  <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="form-group">
-      <div><%= f.label :fist_name, "First name:" %><br />
-        <%= f.text_field :first_name, autofocus: true, class: "form-control" %>
+      <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+          <i class="icon-calendar"></i>
+          <h3 class="panel-title">I am a:</h3>
+        </div>
+
+        <div class="panel-body">
+          <%= label_tag(:role, "Seller", class: "radio-inline") %>
+          <%= radio_button_tag(:role, "seller") %>
+          <%= label_tag(:role, "Agent", class:  "radio-inline") %>
+          <%= radio_button_tag(:role, "agent") %>
+
+          <div>
+        </div>
       </div>
-
-      <div><%= f.label :last_name, "Last name:" %><br />
-        <%= f.text_field :last_name, class: "form-control" %>
-      </div>
-
-      <div><%= f.label :email, "Email:" %><br />
-        <%= f.email_field :email, class: "form-control" %>
-      </div>
-
-      <div><%= f.label :cell_phone , "Cell Phone:"%><br />
-        <%= f.text_field :cell_phone, class: "form-control" %>
-      </div>
-
-      <div><%= f.label :password, "Password:" %><br />
-        <%= f.password_field :password, class: "form-control" %>
-      </div>
-
-      <div><%= f.label :password_confirmation, "Password Confirm:" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-      </div>
-
-      <div><%= f.label :role, "I am a:" %><br />
-        <%= f.select :role, options_for_select([['Seller', 'seller'], ['Agent', 'agent']]), class: "form-control"%>
-      </div>
-
-
-      <div><%= f.submit "Sign up" %></div>
+    </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+<div>
+  <div>
+      <div>
+
+
+
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+        <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<% end %>
+<!-- Modal -->
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+
