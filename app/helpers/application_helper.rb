@@ -1,7 +1,6 @@
 module ApplicationHelper
 
   def flash_class(key)
-    binding.pry
     if key == "success"
       "alert alert-success"
     elsif key == "notice"
