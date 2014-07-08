@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   validates :role, presence: true
 
   has_many :properties
-  accepts_nested_attributes_for :properties
+  has_one :agent_profile
+  accepts_nested_attributes_for :properties, :agent_profile
 end
