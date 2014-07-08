@@ -10,16 +10,18 @@ feature 'user registers', %Q{
 
     visit new_user_registration_path
     within (".user_sign_up") do
-    fill_in 'first_name', with: 'Mike'
-    fill_in 'last_name', with: 'Jones'
-    fill_in 'email', with: 'email@email.com'
-    fill_in 'cell_phone', with: '555-666-9999'
-    fill_in 'password', with: 'password1'
-    fill_in 'password_confirmation', with: 'password1'
-    choose 'role_seller'
-    click_button 'Register'
+      fill_in 'first_name', with: 'Mike'
+      fill_in 'last_name', with: 'Jones'
+      fill_in 'email', with: 'email@email.com'
+      fill_in 'cell_phone', with: '555-666-9999'
+      fill_in 'password', with: 'password15'
+      fill_in 'password_confirmation', with: 'password15'
+      choose 'role_seller'
+      click_button 'Register'
     end
-
+    # binding.pry
+    save_and_open_page
+    expect(page).to_not have_content 'errors prohibited this user from being saved'
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
