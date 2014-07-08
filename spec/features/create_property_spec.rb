@@ -8,7 +8,6 @@ feature 'user signs in to create property', %Q{
 
     user = FactoryGirl.create(:user, role: 'seller')
     sign_in_as(user)
-    save_and_open_page
     expect(page).to have_content 'Create property'
     expect(page).to have_content 'Create appointment'
   end

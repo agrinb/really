@@ -43,12 +43,8 @@
 <!-- NAVBAR END -->
 
 
-    <% flash.each do |key, value| %>
-    binding.pry
-      <div class="<%= flash_class(key) %>">
-        <%= value %>
-      </div>
-    <% end %>
+
+      <%= flash[:notice] %>
 
 
   <div class="container">
