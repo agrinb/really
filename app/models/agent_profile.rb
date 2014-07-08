@@ -5,5 +5,5 @@ class AgentProfile < ActiveRecord::Base
   validates :to_hour, presence: true
   validates :description, presence: true
   validates :years_of_experience, presence: true
-  belongs_to :user
+  has_one :user
 end
