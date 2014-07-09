@@ -1,28 +1,38 @@
 <div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "user_sign_up"}) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-      <h2>Please Sign Up <small>It's free and always will be.</small></h2>
-      <hr class="colorgraph">
+  <%= form_for(resource, as: resource_name,
+                         url: registration_path(resource_name), html: { class: "user_sign_up"}) do |f| %>
+    <%= devise_error_messages! %>
 
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-            <div class="form-group">
-              <%= f.label :first_name, "First name" %>
-              <%= f.text_field :first_name, autofocus: true, id: "first_name", class: "form-control input-lg", placeholder: "First Name", tabindex: "1" %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+        <hr class="colorgraph">
+
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= f.label :first_name, "First name" %>
+                <%= f.text_field :first_name, autofocus: true, id: "first_name", class: "form-control input-lg", placeholder: "First Name", tabindex: "1" %>
+              </div>
             </div>
-          </div>
+
 
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <%= f.label :last_name %>
               <%= f.text_field :last_name, id: "last_name", class: "form-control input-lg", placeholder: "Last Name", tabindex: "2" %>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, id: "last_name", class: "form-control input-lg", placeholder: "Last Name", tabindex: "2" %>
+              </div>
             </div>
           </div>
-        </div>
+
 
         <div class="form-group">
           <%= f.label :email %>
@@ -39,19 +49,64 @@
             <div class="form-group">
               <%= f.label :password %>
               <%= f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
+
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, id: "email", class: "form-control input-lg", placeholder: "Email Address", tabindex: "3" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :cell_phone %>
+            <%= f.text_field :cell_phone, id: "cell_phone", class: "form-control input-lg", placeholder: "555-123-4567", tabindex: "4" %>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, id: "password", class: "form-control input-lg", placeholder: "Password", tabindex: "5" %>
+              </div>
+            </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, id: "password_confirmation", class: "form-control input-lg", placeholder: "Password Confirm", tabindex: "6" %>
+            </div>
+          </div>
+        </div>
+
+    <!--    fields for agents  -->
+      <%= f.fields_for :agent_profile, (resource.agent_profile || resource.build_agent_profile) do |agent_profile| %>
+
+
+        <div class="form-group">
+          <%= agent_profile.label :realty, "Realty Association" %>
+            <%= agent_profile.text_field :realty, id: "realty", class: "form-control input-lg", placeholder: "House Be Gone Inc.", tabindex: "4" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= agent_profile.label :description, "Agent Profile" %>
+            <%= agent_profile.text_field :description, id: "agent_profile", class: "form-control input-lg", placeholder: "#1 Agent in Boston", tabindex: "4" %>
+        </div>
+
+         <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= agent_profile.label :zip_code, "Primary Zip Code" %>
+                <%= agent_profile.text_field :zip_code, id: "zip_code", class: "form-control input-lg", placeholder: "02111", tabindex: "1" %>
+                </div>
+              </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= agent_profile.label :years_of_experience, "Years of Experience" %>
+                <%= agent_profile.text_field :years_of_experience, id: "years_of_experience", class: "form-control input-lg", placeholder: "4", tabindex: "2" %>
+              </div>
             </div>
           </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="form-group">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, id: "password_confirmation", class: "form-control input-lg", placeholder: "Password Confirm", tabindex: "6" %>
-          </div>
-        </div>
-      </div>
-
-
-  <!-- <div class="col-xs-12 col-sm-6 col-md-6"> -->
 
     <div class="form-group">
       <div class="panel panel-primary">
@@ -78,11 +133,62 @@
         <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
         <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
       </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= agent_profile.label :from_hour, "Available From" %>
+                <%= agent_profile.text_field :from_hour, id: "from_hour", class: "form-control input-lg", placeholder: "10AM", tabindex: "1" %>
+              </div>
+            </div>
+
+             <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="form-group">
+                <%= agent_profile.label :to_hour, "Available To" %>
+                <%= agent_profile.text_field :to_hour, id: "to_hour", class: "form-control input-lg", placeholder: "8PM", tabindex: "1" %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+  <!-- agent fields end -->
+
+
+      <div class="form-group">
+        <div class="panel panel-primary">
+          <div class="panel-heading clearfix">
+            <i class="icon-calendar"></i>
+              <h3 class="panel-title">I am a:</h3>
+          </div>
+          <div class="panel-body">
+                <%= label_tag(:role, "Seller", class: "radio-inline") %>
+                <%= radio_button_tag(:role, "seller") %>
+                <%= label_tag(:role, "Agent", class:  "radio-inline") %>
+                <%= radio_button_tag(:role, "agent") %>
+              <div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+      <div>
+        <div>
+            <hr class="colorgraph">
+            <div class="row">
+              <div class="col-xs-12 col-md-6">
+                 <%= f.submit "Register", class: "btn btn-primary btn-block btn-lg" %></div>
+              <div class="col-xs-12 col-md-6"><a href="/users/sign_in" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
 
 <% end %>
-<!-- Modal <--></-->
+
+<% end %>
+
 
 </div>
 

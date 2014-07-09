@@ -9,6 +9,7 @@ class PropertiesController < ApplicationController
     @properties = @user.properties.all
   end
 
+
   def create
     @property = Property.new(property_params)
     @property.user = current_user
@@ -26,6 +27,7 @@ class PropertiesController < ApplicationController
   end
 
 private
+
 
   def property_params
     params.require(:property).permit(:user_id, :name, :description, :bedrooms, :bathrooms, :address, :city, :state,  :zip, :details)
