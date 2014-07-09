@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'properties#index'
 
+  resources :properties, only: [:new, :create, :edit, :update]
   resources :users do
-    resources :properties
+    resources :properties, only: [:index]
   end
 
 

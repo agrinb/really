@@ -1,8 +1,7 @@
 class PropertiesController < ApplicationController
-  before_action :set_user, only: [:new, :create, :index ]
+  before_action :authenticate_user!, only: [:new, :create, :update]
 
   def new
-    @user = User.find(params[:user_id])
     @property = Property.new
   end
 
@@ -12,7 +11,7 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new(property_params)
-    @property.user_id = set_user.id
+    @property.user = current_user
     if @property.save
       flash[:notice] = "Congratulations! You've just listed your property!"
       redirect_to user_properties_path
@@ -22,11 +21,11 @@ class PropertiesController < ApplicationController
     end
   end
 
-private
-  def set_user
-    @user = User.find(params[:user_id])
+  def update
+
   end
 
+private
 
   def property_params
     params.require(:property).permit(:user_id, :name, :description, :bedrooms, :bathrooms, :address, :city, :state,  :zip, :details)
