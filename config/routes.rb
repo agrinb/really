@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'properties#index'
 
 
-  resources :properties, only: [:new, :create, :edit, :update]
-  resources :users do
-    resources :properties, only: [:index]
-  end
+  resources :properties, only: [:new, :create, :edit, :update, :index]
+  resources :users
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

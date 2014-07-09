@@ -5,7 +5,6 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-    <form role="form">
       <h2>Please Sign Up <small>It's free and always will be.</small></h2>
       <hr class="colorgraph">
 
@@ -30,14 +29,14 @@
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
             <%= f.label :city %>
-            <%= f.password_field :city, class: "form-control input-lg", placeholder: "Boston" %>
+            <%= f.text_field :city, class: "form-control input-lg", placeholder: "Boston" %>
         </div>
       </div>
 
         <div class="col-xs-12 col-sm-6 col-md-6">
           <div class="form-group">
             <%= f.label :state %>
-              <%= f.password_field :state, class: "form-control input-lg", placeholder: "MA" %>
+              <%= f.text_field :state, class: "form-control input-lg", placeholder: "MA" %>
             </div>
           </div>
         </div>
@@ -46,7 +45,7 @@
           <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="form-group">
               <%= f.label :zip, "Zip Code" %>
-              <%= f.text_field :zip, class: "form-control input-lg", placeholder: "02111" %>
+              <%= f.text_field :zip_code, class: "form-control input-lg", placeholder: "02111" %>
             </div>
           </div>
 
@@ -81,8 +80,7 @@
       <div class="row">
         <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
       </div>
-    </form>
-  </div>
+      </div>
 </div>
 
 <% end %>

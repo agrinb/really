@@ -6,7 +6,11 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @properties = @user.properties.all
+    if user_signed_in?
+      @properties = current_user.properties
+    else
+      @properties = Property.all
+    end
   end
 
 
@@ -15,7 +19,7 @@ class PropertiesController < ApplicationController
     @property.user = current_user
     if @property.save
       flash[:notice] = "Congratulations! You've just listed your property!"
-      redirect_to user_properties_path
+      redirect_to properties_path
     else
       flash[:alert] = "Your property could not be saved!"
       render :new
