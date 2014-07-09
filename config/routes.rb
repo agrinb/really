@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'properties#index'
+  get 'properties/boots', to: "properties#boots"
 
   resources :users do
     resources :properties

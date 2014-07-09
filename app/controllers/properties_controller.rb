@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
     "hello world"
   end
 
+
   def create
     @property = Property.new(property_params)
     @property.user_id = set_user.id
@@ -25,6 +26,7 @@ private
   def set_user
     @user = User.find(params[:user_id])
   end
+
 
 
   def property_params
