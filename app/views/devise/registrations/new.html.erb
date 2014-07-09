@@ -78,8 +78,6 @@
 
     <!--    fields for agents  -->
       <%= f.fields_for :agent_profile, (resource.agent_profile || resource.build_agent_profile) do |agent_profile| %>
-
-
         <div class="form-group">
           <%= agent_profile.label :realty, "Realty Association" %>
             <%= agent_profile.text_field :realty, id: "realty", class: "form-control input-lg", placeholder: "House Be Gone Inc.", tabindex: "4" %>
@@ -108,31 +106,6 @@
           </div>
 
 
-    <div class="form-group">
-      <div class="panel panel-primary">
-        <div class="panel-heading clearfix">
-          <i class="icon-calendar"></i>
-            <h3 class="panel-title">I am a:</h3>
-        </div>
-        <div class="panel-body">
-              <%= label_tag(:role, "Seller", class: "radio-inline") %>
-              <%= radio_button_tag(:role, "seller") %>
-              <%= label_tag(:role, "Agent", class:  "radio-inline") %>
-              <%= radio_button_tag(:role, "agent") %>
-            <div>
-          </div>
-        </div>
-    </div>
-  </div>
-
-
-<div>
-  <div>
-      <hr class="colorgraph">
-      <div class="row">
-        <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
-        <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Sign In</a></div>
-      </div>
 
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6">
@@ -153,22 +126,23 @@
   <!-- agent fields end -->
 
 
-      <div class="form-group">
-        <div class="panel panel-primary">
-          <div class="panel-heading clearfix">
-            <i class="icon-calendar"></i>
-              <h3 class="panel-title">I am a:</h3>
-          </div>
-          <div class="panel-body">
-                <%= label_tag(:role, "Seller", class: "radio-inline") %>
-                <%= radio_button_tag(:role, "seller") %>
-                <%= label_tag(:role, "Agent", class:  "radio-inline") %>
-                <%= radio_button_tag(:role, "agent") %>
-              <div>
+          <div class="form-group">
+            <div class="panel panel-primary">
+                <div class="panel-heading clearfix">
+                  <i class="icon-calendar"></i>
+                    <h3 class="panel-title">I am a:</h3>
+                </div>
+              <div class="panel-body">
+                    <%= label_tag(:role, "Seller", class: "radio-inline") %>
+                    <%= radio_button_tag(:role, "seller") %>
+                    <%= label_tag(:role, "Agent", class:  "radio-inline") %>
+                    <%= radio_button_tag(:role, "agent") %>
+                  <div>
+                </div>
+              </div>
             </div>
           </div>
-      </div>
-    </div>
+
 
 
       <div>
@@ -184,8 +158,6 @@
     </div>
   </div>
 
-
-<% end %>
 
 <% end %>
 

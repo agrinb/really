@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'properties#index'
-  get 'properties/boots', to: "properties#boots"
+
 
   resources :properties, only: [:new, :create, :edit, :update]
   resources :users do
