@@ -1,4 +1,58 @@
 
   <%= devise_error_messages! %>
 
-  "Hello World"
+
+
+<%= @properties.each do |p| %>
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3 class="panel-title"><%= p.name %></h3>
+</div>
+<div class="panel-body">
+<div class="media col-md-3">
+<figure class="pull-left">
+<img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+</figure>
+</div>
+</div>
+</div>
+<% end %>
+
+
+
+
+  <div class="container">
+
+    <div class="row">
+    <div class="well">
+        <h1 class="text-center">Vote for your favorite</h1>
+        <div class="list-group">
+   <% @properties.each do |p| %>
+
+                <div class="media col-md-3">
+                    <figure class="pull-left">
+                        <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                    </figure>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="list-group-item-heading"><%= p.name %></h4>
+                    <p class="list-group-item-text"><%= p.address %>
+                    </p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <h2> 14240 <small> votes </small></h2>
+                    <button type="button" class="btn btn-default btn-lg btn-block"> Vote Now! </button>
+                    <div class="stars">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <p> Average 4.5 <small> / </small> 5 </p>
+                </div>
+          <% end %>
+        </div>
+        </div>
+  </div>
+</div>
