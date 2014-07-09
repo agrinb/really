@@ -38,17 +38,14 @@
     </div>
   </div>
 </div><!--/.navbar-collapse -->
-
-
 <!-- NAVBAR END -->
-
-
-
-      <%= flash[:notice] %>
-
-
   <div class="container">
-    <%= yield %>
+    <div class="custom_top">
+      <% flash.each do |key, msg| %>
+        <%= msg %>
+      <% end %>
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
