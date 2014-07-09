@@ -1,8 +1,11 @@
 class PropertiesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit]
 
   def new
     @property = Property.new
+  end
+
+  def edit
   end
 
   def index
