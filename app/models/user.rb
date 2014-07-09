@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -10,5 +11,7 @@ class User < ActiveRecord::Base
   validates :role, presence: true
 
   has_many :properties
+  has_one :agent_profile
+  accepts_nested_attributes_for :agent_profile
   accepts_nested_attributes_for :properties
 end

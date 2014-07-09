@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708015751) do
+ActiveRecord::Schema.define(version: 20140708173622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "agent_profiles", force: true do |t|
+    t.integer  "zip_code",            null: false
+    t.integer  "years_of_experience", null: false
+    t.integer  "description",         null: false
+    t.string   "from_hour",           null: false
+    t.string   "to_hour",             null: false
+    t.integer  "user_id",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "realty"
+  end
 
   create_table "properties", force: true do |t|
     t.string  "name"
@@ -46,11 +58,6 @@ ActiveRecord::Schema.define(version: 20140708015751) do
     t.string   "last_name"
     t.string   "role",                   default: "seller"
     t.string   "cell_phone"
-    t.integer  "zip_code"
-    t.integer  "years_of_experience"
-    t.string   "description"
-    t.integer  "from_hour"
-    t.integer  "to_hour"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
