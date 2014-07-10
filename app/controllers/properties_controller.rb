@@ -20,6 +20,7 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.new(property_params)
+    binding.pry
     @property.user = current_user
     if @property.save
       flash[:notice] = "Congratulations! You've just listed your property!"
@@ -41,7 +42,7 @@ private
 
 
   def property_params
-    params.require(:property).permit(:user_id, :name, :description, :bedrooms, :bathrooms, :address, :city, :state,  :zip, :details)
+    params.require(:property).permit(:user_id, :name, :description, :photo, :bedrooms, :bathrooms, :address, :city, :state,  :zip_code, :details)
   end
 end
 

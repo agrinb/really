@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore environment variables
+
+/config/initializers/carrierwave.rb
+/public/uploads
+.env

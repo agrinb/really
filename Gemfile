@@ -33,6 +33,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'pry-rails'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 gem 'devise'
@@ -40,6 +41,11 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'bootswatch-rails'
+gem 'carrierwave'
+gem 'fog', '~> 1.22.1'
+gem 'nokogiri', '~> 1.6.2.1'
+gem 'mini_magick', '3.5.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
