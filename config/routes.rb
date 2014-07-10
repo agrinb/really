@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'properties#index'
 
   resource :appointments, only: [:index]
-  resources :properties, only: [:new, :create, :edit, :update, :index] do
+  resources :properties, only: [:new, :create, :edit, :update, :index, :show] do
     resource :appointments, only: [:new, :create, :edit, :update, :index]
   end
   resources :users

@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update, :edit]
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :show]
 
   def new
     @property = Property.new
@@ -31,7 +31,10 @@ class PropertiesController < ApplicationController
   end
 
   def update
+  end
 
+  def show
+    @property = Property.find(params[:id])
   end
 
 private
