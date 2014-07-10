@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root 'properties#index'
 
-
-  resources :properties, only: [:new, :create, :edit, :update, :index]
+  resource :appointments, only: [:index]
+  resources :properties, only: [:new, :create, :edit, :update, :index] do
+    resource :appointments, only: [:new, :create, :edit, :update, :index]
+  end
   resources :users
 
 

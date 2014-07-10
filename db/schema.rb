@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(version: 20140710111830) do
     t.string   "realty"
   end
 
-  create_table "approintments", force: true do |t|
+  create_table "appointments", force: true do |t|
     t.integer  "agent_profile_id"
     t.integer  "property_id",      null: false
     t.string   "instructions"
     t.string   "visitor",          null: false
     t.string   "visitor_phone",    null: false
-    t.string   "vistor_email"
+    t.string   "visitor_email"
     t.datetime "meeting",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
