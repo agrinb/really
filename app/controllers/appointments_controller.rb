@@ -7,10 +7,11 @@ class AppointmentsController <ApplicationController
   end
 
   def create
-    @property = Property.find(params[:id])
+    @property = Property.find(params[:property_id])
     @appointment = Appointment.new(appointment_params)
-    @appointment.user = current_user
-    if appointment.save
+    @appointment.property = @property
+    binding.pry
+    if @appointment.save
       flash[:notice] = "Appointment created successfully."
       redirect_to property_appointments_path
     else
@@ -24,7 +25,7 @@ class AppointmentsController <ApplicationController
   def claim_appointment
   end
 
-  def property_params
-  params.require(:appointment).permit(:user_id, :agent_profile_id, :property_id, :instructions, :visitor, :visitor_phone, :visitor_email, :meeting)
+  def appointment_params
+    params.require(:appointment).permit(:user_id, :agent_profile_id, :property_id, :instructions, :visitor, :visitor_phone, :visitor_email, :meeting)
   end
 end
