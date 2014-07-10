@@ -10,10 +10,10 @@ class AppointmentsController <ApplicationController
     @property = Property.find(params[:property_id])
     @appointment = Appointment.new(appointment_params)
     @appointment.property = @property
-    binding.pry
+    ApptMailer.notify_agents(@appointment).deliver
     if @appointment.save
       flash[:notice] = "Appointment created successfully."
-      redirect_to property_appointments_path
+      redirect_to property_path
     else
       render :new
     end
