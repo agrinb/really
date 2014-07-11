@@ -24,7 +24,7 @@
     <div class="navbar-collapse collapse">
       <% if user_signed_in? %>
         <div class="navbar-form navbar-right">
-          <%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "btn btn-primary btn", role: "button" %>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "btn btn-success btn", role: "button" %>
         </div>
       <% else  %>
         <div class="navbar-form navbar-right" >

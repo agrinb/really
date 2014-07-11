@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'properties#index'
+  root 'properties#home'
 
   resource :appointments, only: [:index]
   resources :properties, only: [:new, :create, :edit, :update, :index, :show] do
