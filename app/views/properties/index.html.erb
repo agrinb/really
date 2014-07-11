@@ -1,7 +1,14 @@
 
-  <%= devise_error_messages! %>
-
-
+<div class="wide">
+    <div class="col-xs-5"></div>
+    <div class="col-xs-8 logo"><h1>Reeally!</h1></div>
+    <div class="col-xs-5"><p>On demand Real Estate showings for Sale By Owner Sellers!</p></div>
+    <div class="col-xs-8">
+      <p>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success"  %>
+      </p>
+    </div>
+</div>
 
 <% @properties.each do |p| %>
   <div class="panel panel-primary">

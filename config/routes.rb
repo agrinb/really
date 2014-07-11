@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :users
 
+  namespace :agent do
+    resources :appointments
+  end
 
 
 

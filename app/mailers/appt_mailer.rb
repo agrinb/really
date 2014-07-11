@@ -1,7 +1,7 @@
 class ApptMailer < ActionMailer::Base
   default from: "new_appointment@reeally.com"
 
-  def self.notify_agents(user, appointment)
+  def notify_agents(user, appointment)
     @property = appointment.property
     @appointment = appointment
     @user = user
@@ -21,6 +21,7 @@ class ApptMailer < ActionMailer::Base
 
   def self.find_agents(zip_code)
     agent_profiles = AgentProfile.where(zip_code: zip_code)
+    binding.pry
     agent_users = agent_profiles.map { |agent| agent.user }
   end
 end

@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   has_one :agent_profile
   accepts_nested_attributes_for :agent_profile
   accepts_nested_attributes_for :properties
+
+  def is_agent?
+    role == "agent"
+  end
 end
