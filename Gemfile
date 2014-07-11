@@ -46,6 +46,10 @@ gem 'fog', '~> 1.22.1'
 gem 'nokogiri', '~> 1.6.2.1'
 gem 'mini_magick', '3.5.0'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
