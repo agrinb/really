@@ -1,10 +1,11 @@
 class ApptMailer < ActionMailer::Base
   default from: "new_appointment@reeally.com"
 
-  def notify_agents(appointment)
+  def self.notify_agents(appointment)
+    @property = appointment.property
     @appointment = appointment
-    agent_users = find_agents(zip_code(appointment))
-    agent_users.each do |user|
+    @agent_users = find_agents(zip_code(appointment))
+    @agent_users.each do |user|
       mail(to: user.email, subject: 'Welcome to My Awesome Site')
     end
   end
@@ -15,6 +16,6 @@ class ApptMailer < ActionMailer::Base
 
   def find_agents(zip_code)
     agent_profiles = AgentProfile.where(zip_code: zip_code)
-    agent_users = agent_profiles.map { |agent| agent.user_id }
+    agent_users = agent_profiles.map { |agent| agent.user }
   end
 end
