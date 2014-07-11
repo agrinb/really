@@ -47,7 +47,7 @@ gem 'nokogiri', '~> 1.6.2.1'
 gem 'mini_magick', '3.5.0'
 
 group :production do
-  gem 'pg'
+  gem 'rails_12factor'
 end
 
 
