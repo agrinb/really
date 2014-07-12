@@ -1,6 +1,6 @@
 class AppointmentsController <ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit]
-  before_action :is_agent?
+  # before_action :is_agent?
 
   def new
     @property = Property.find(params[:property_id])
@@ -14,7 +14,7 @@ class AppointmentsController <ApplicationController
     ApptMailer.send_notify_agents(@appointment)
     if @appointment.save
       flash[:notice] = "Appointment created successfully."
-      redirect_to property_path
+      redirect_to property_path(@property)
     else
       render :new
     end
@@ -25,11 +25,11 @@ class AppointmentsController <ApplicationController
 
 
 
-  def is_agent?
-    if current_user.agent_profile.valid?
-  end
+  # def is_agent?
+  #   if current_user.agent_profile.valid?
+  #   end
+  # end
 
-  def
 
   def appointment_params
     params.require(:appointment).permit(:user_id, :agent_profile_id, :property_id, :instructions, :visitor, :visitor_phone, :visitor_email, :meeting)
