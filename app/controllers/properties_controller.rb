@@ -12,6 +12,8 @@ class PropertiesController < ApplicationController
   def index
     if user_signed_in?
       @properties = current_user.properties
+      @appointments = @properties.map { |prop| prop.appointments }
+      binding.pry
     else
       @properties = Property.all
     end
@@ -22,6 +24,9 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     binding.pry
     @property.user = current_user
+    if @property.photo == nil
+      @property.photo = "/assets/images/default.jpg"
+    end
     if @property.save
       flash[:notice] = "Congratulations! You've just listed your property!"
       redirect_to properties_path

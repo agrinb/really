@@ -1,3 +1,11 @@
+  <div class="well">
+    <div>
+          <p class="lead">Listed Properties: <span class="label label-primary"><%= @properties.count %></span>
+         Upcoming Appointments: <span class="label label-primary"><%= @appointments.count %></span>
+          <%= link_to "New Property", new_property_path, class: "btn btn-warning btn pull-right", role: "button" %>
+    </div>
+  </div>
+
    <div class="panel panel-success">
     <div class="panel-heading">
       <h3 class="panel-title">Upcoming Appointments</h3>
@@ -23,7 +31,7 @@
                       <td><%= appt.meeting %></td>
                       <td><%= appt.visitor %></td>
                       <td><%= appt.visitor_phone%></td>
-                      <% if !appt.agent_profile_id == nil %>
+                      <% if appt.agent_profile_id != nil %>
                         <td><%= appt.agent_profile.user.first_name %> <%= appt.agent_profile.user.last_name %></td>
                         <td><%= appt.agent_profile.user.cell_phone %></td>
                       <% else %>
@@ -60,9 +68,9 @@
               <p class="list-group-item-text">Bathrooms: <%= p.bathrooms %></p>
               <p class="list-group-item-text">Details: <%= p.details %></p>
       </div>
-      <div>
-      <%= link_to "Edit", edit_property_path(p), class: "btn btn-info" %>
-      <%= link_to "New Appointment", new_property_appointments_path(p), class: "btn btn-success" %>
+      <div class="col-md-4 pull-right">
+        <%= link_to "Edit", edit_property_path(p), class: "btn btn-info" %>
+        <%= link_to "New Appointment", new_property_appointments_path(p), class: "btn btn-success" %>
       </div>
     </div>
   </div>

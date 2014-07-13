@@ -1,0 +1,46 @@
+ <% if @appointments.empty? %>
+    <div class="alert alert-dismissable alert-warning">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+    <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
+    </div>
+  <% else %>
+    <div class="alert alert-dismissable alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
+    </div>
+  <% end %>
+
+
+  <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
+  <% end %>
+
+
+<% @appointments.each do |appt| %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="list-group-item-heading">Time: <%= appt.meeting %>
+      <div class="pull-right">Zip Code: <%= appt.property.zip_code %></div></h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel_info_heading">
+        Address:
+      </div>
+        <div class="panel_info"><%= appt.property.address %></div>
+      <br>
+      <div class="panel_info_heading">
+        Instructions:
+      </div>
+        <div class="panel_info"><%= appt.instructions %></div>
+    </div>
+      <div>
+        <div class="btn-group">
+          <a href="#" class="btn btn-info">Details</a>
+          <%= link_to "Claim",  agent_appointment_path(appt),  method: :put %>
+
+          <a href="#" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
