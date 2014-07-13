@@ -1,19 +1,12 @@
  <% if @appointments.empty? %>
     <div class="alert alert-dismissable alert-warning">
-      <button type="button" class="close" data-dismiss="alert">x</button>
     <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
     </div>
   <% else %>
     <div class="alert alert-dismissable alert-success">
-    <button type="button" class="close" data-dismiss="alert">×</button>
     <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
     </div>
   <% end %>
-
-
-  <h4 class="list-group-item-heading">Available appointments in your area: <%= @appointments.count %></h4>
-  <% end %>
-
 
 <% @appointments.each do |appt| %>
 
