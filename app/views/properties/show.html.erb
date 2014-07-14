@@ -44,7 +44,7 @@
               <% @property.appointments.each do |appt| %>
               <tbody>
                 <tr>
-                  <td><%= appt.meeting %></td>
+                  <td><%= time_tag(appt.meeting) %></td>
                   <td><%= appt.visitor %></td>
                   <td><%= appt.visitor_phone%></td>
                   <% if !appt.agent_profile_id == nil %>

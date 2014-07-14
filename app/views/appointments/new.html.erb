@@ -20,7 +20,9 @@
         <div class="form-group">
         <% my_date_time = Time.now %>
           <%= f.label :meeting, "When" %>
-            <%= f.datetime_select(:meeting) %>
+          <div class: "datetime">
+            <%= f.datetime_select(:meeting, ampm: true, order: [:month, :day, :year, :hour, :minute], id: "datetime" ) %>
+          </div>
         </div>
 
           <div class="form-group">

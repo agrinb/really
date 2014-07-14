@@ -2,11 +2,17 @@
 
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { |n| "email#{n}@gmail.com" }
-    password "supersecret"
     first_name "Mike"
     last_name "Jones"
-    role "seller"
-    sequence(:cell_phone) { |n| "#{n}23-456-7890" }
+    password 'password15'
+    password_confirmation 'password15'
+    role 'seller'
+    sequence :email do |n|
+      "person#{n}@example.com"
+    end
+    sequence :cell_phone do |n|
+      "55#{n}-739-#{n}797"
+    end
+
   end
 end
