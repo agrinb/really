@@ -4,6 +4,13 @@ class AgentProfile < ActiveRecord::Base
   validates :from_hour, presence: true
   validates :to_hour, presence: true
   validates :description, presence: true
-  validates :years_of_experience, presence: true
   belongs_to :user
+
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    binding.pry
+    zip_code
+  end
 end

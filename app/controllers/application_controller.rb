@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name, :role, :cell_phone, agent_profile_attributes: [:zip_code, :years_of_experience, :description, :from_hour, :to_hour, :realty]) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :first_name, :last_name,
+     :role, :cell_phone, agent_profile_attributes: [:zip_code, :radius, :description, :from_hour, :to_hour, :realty]) }
   end
 end

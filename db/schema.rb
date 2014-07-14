@@ -11,21 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710184630) do
+ActiveRecord::Schema.define(version: 20140714213757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "agent_profiles", force: true do |t|
-    t.integer  "zip_code",            null: false
-    t.integer  "years_of_experience", null: false
-    t.integer  "description",         null: false
-    t.string   "from_hour",           null: false
-    t.string   "to_hour",             null: false
-    t.integer  "user_id",             null: false
+    t.string   "zip_code",                 null: false
+    t.integer  "description",              null: false
+    t.string   "from_hour",                null: false
+    t.string   "to_hour",                  null: false
+    t.integer  "user_id",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "realty"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "radius",      default: 10
   end
 
   create_table "appointments", force: true do |t|
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 20140710184630) do
     t.string  "details"
     t.string  "zip_code"
     t.string  "photo"
+    t.float   "latitude"
+    t.float   "longitude"
   end
 
   create_table "users", force: true do |t|

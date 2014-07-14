@@ -24,6 +24,7 @@ class PropertiesController < ApplicationController
   end
 
 
+
   def create
     @property = Property.new(property_params)
     @property.user = current_user
@@ -43,6 +44,14 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
   end
+
+  def destroy
+    @property = Property.find(params[:id])
+    @property.destroy
+      redirect_to properties_path
+  end
+
+
 
 private
 

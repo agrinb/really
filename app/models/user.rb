@@ -11,11 +11,13 @@ class User < ActiveRecord::Base
   validates :role, presence: true
 
   has_many :properties
-  has_one :agent_profile
+  has_one :agent_profile, dependent: :destroy
   accepts_nested_attributes_for :agent_profile
   accepts_nested_attributes_for :properties
 
   def is_agent?
     role == "agent"
   end
+
+  before_destroy { |user| user.properties.destroy_all "user_id = #{user.id}" }
 end

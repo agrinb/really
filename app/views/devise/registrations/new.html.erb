@@ -79,8 +79,8 @@
 
             <div class="col-xs-12 col-sm-6 col-md-6">
               <div class="form-group">
-                <%= agent_profile.label :years_of_experience, "Years of Experience" %>
-                <%= agent_profile.text_field :years_of_experience, id: "years_of_experience", class: "form-control input-lg", placeholder: "4" %>
+                <%= agent_profile.label :radius, "Radius of Service" %>
+                <%= agent_profile.select :radius, options_for_select({ "5 miles" => 5, "10 miles" => 10, "15 miles" => 15, "20 miles" => 20, "30 miles" => 30}, 10) %>
               </div>
             </div>
           </div>
