@@ -10,7 +10,6 @@ class AgentProfile < ActiveRecord::Base
   after_validation :geocode
 
   def address
-    binding.pry
     zip_code
   end
 end

@@ -21,7 +21,6 @@ class ApptMailer < ActionMailer::Base
 
   def self.find_agents(zip_code)
     agent_profiles = AgentProfile.where(zip_code: zip_code)
-    binding.pry
     agent_users = agent_profiles.map { |agent| agent.user }
   end
 end

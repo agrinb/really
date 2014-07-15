@@ -3,7 +3,11 @@ class Agent::AppointmentsController <ApplicationController
 
 
   def index
-    @appointments = Appointment.where(agent_profile_id: nil)
+    # agent = AgentProfile.find(params[:id])
+    # radius = agent.radius
+    # properties = Property.nearbys(radius)
+    # #appointments = appointments for proprties and Appointment.where(agent_profile_id: nil)
+    # @appointment = Property.all
   end
 
   def update

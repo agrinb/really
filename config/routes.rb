@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
+  resources :agent_profiles, only: [:index], as: :agent do
+    resources :appointments, only: [:index]
+  end
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
