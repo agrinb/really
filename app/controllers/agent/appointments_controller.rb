@@ -3,6 +3,7 @@ class Agent::AppointmentsController <ApplicationController
 
 
   def index
+    @your_appointments = Appointment.where(agent_profile_id: current_user.id)
     @appointments = Appointment.where(agent_profile_id: nil)
   end
 
@@ -16,6 +17,10 @@ class Agent::AppointmentsController <ApplicationController
       flash[:alert] = "Sorry, that didn't work. Please try again."
       render :index
     end
+  end
+
+  def show
+    @appointment = Appointment.find(params[:id])
   end
 
 
