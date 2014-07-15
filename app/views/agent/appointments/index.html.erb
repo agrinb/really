@@ -60,11 +60,8 @@
         <div class="panel_info"><%= appt.instructions %></div>
     </div>
       <div>
-        <div class="btn-group">
-          <a href="#" class="btn btn-info">Details</a>
+        <div class="btn-group pull-right">
           <%= link_to "Claim",  agent_appointment_path(appt),  method: :put, class: "btn btn-success" %>
-
-          <a href="#" class="btn btn-warning">Cancel</a>
         </div>
       </div>
     </div>
