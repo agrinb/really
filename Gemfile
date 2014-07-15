@@ -45,6 +45,7 @@ gem 'carrierwave'
 gem 'fog', '~> 1.22.1'
 gem 'nokogiri', '~> 1.6.2.1'
 gem 'mini_magick', '3.5.0'
+gem 'geocoder', '~> 1.2.3'
 
 group :production do
   gem 'rails_12factor'

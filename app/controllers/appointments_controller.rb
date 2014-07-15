@@ -21,6 +21,21 @@ class AppointmentsController <ApplicationController
   end
 
   def index
+
+    agent = AgentProfile.find(params[:agent_id])
+    radius = agent.radius
+    properties_near = Property.near(agent, agent.radius)
+    #Appointmenets where that are associated with
+    #properties near and have an agent_profile_id = nil
+    property_ids = []
+    properties_near.each do |property|
+      property_ids << property.id
+    end
+
+    binding.pry
+    @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil)
+
+
   end
 
 

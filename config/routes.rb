@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'properties#home'
 
   resource :appointments, only: [:index]
-  resources :properties, only: [:new, :create, :edit, :update, :index, :show] do
+  resources :properties, only: [:new, :create, :edit, :update, :index, :show, :destroy] do
     resource :appointments, only: [:new, :create, :edit, :update, :index]
   end
   resources :users
@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   namespace :agent do
     resources :appointments
   end
+
+  resources :agent_profiles, only: [:index], as: :agent do
+    resources :appointments, only: [:index]
+  end
+
 
 
 

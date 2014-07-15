@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   validates :cell_phone, presence: true, uniqueness: true, length: { is: 12 }
   validates :role, presence: true
 
-  has_many :properties
-  has_one :agent_profile
+  has_many :properties, dependent: :destroy
+  has_one :agent_profile, dependent: :destroy
   accepts_nested_attributes_for :agent_profile
   accepts_nested_attributes_for :properties
 

@@ -68,9 +68,11 @@
               <p class="list-group-item-text">Bathrooms: <%= p.bathrooms %></p>
               <p class="list-group-item-text">Details: <%= p.details %></p>
       </div>
-      <div class="col-md-4 pull-right">
+      <div class="col-md-6 pull-right">
         <%= link_to "Edit", edit_property_path(p), class: "btn btn-info" %>
         <%= link_to "New Appointment", new_property_appointments_path(p), class: "btn btn-success" %>
+        <%= link_to "View", property_path(p), class: "btn btn-primary" %>
+        <%= link_to "Delete", property_path(p), method: :delete, class: "btn btn-warning" %>
       </div>
     </div>
   </div>
