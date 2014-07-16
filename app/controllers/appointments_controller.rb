@@ -1,6 +1,6 @@
 class AppointmentsController <ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit]
-  # before_action :is_agent?
+
 
   def new
     @property = Property.find(params[:property_id])
@@ -25,8 +25,6 @@ class AppointmentsController <ApplicationController
     agent = AgentProfile.find(params[:agent_id])
     radius = agent.radius
     properties_near = Property.near(agent, agent.radius)
-    #Appointmenets where that are associated with
-    #properties near and have an agent_profile_id = nil
     property_ids = []
     properties_near.each do |property|
       property_ids << property.id
@@ -34,12 +32,6 @@ class AppointmentsController <ApplicationController
     @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil)
   end
 
-
-
-  # def is_agent?
-  #   if current_user.agent_profile.valid?
-  #   end
-  # end
 
 
   def appointment_params

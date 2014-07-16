@@ -22,6 +22,10 @@ class Agent::AppointmentsController <ApplicationController
     end
   end
 
+  def show
+    @appointment = Appointment.find(params[:id])
+  end
+
 
 
   private
