@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'properties#home'
+  root 'welcome#index'
 
   resource :appointments, only: [:index]
   resources :properties, only: [:new, :create, :edit, :update, :index, :show, :destroy] do
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users
 
+  get "/agent_profiles/:agent_id/appointments", to: "appointments#index"
   namespace :agent do
     resources :appointments
   end
