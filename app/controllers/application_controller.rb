@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.role == "agent"
-      agent_appointments_path
+    "/agent_profiles/#{current_user.agent_profile.id}/appointments"
     else
       properties_path
     end

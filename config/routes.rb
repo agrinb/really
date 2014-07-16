@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :agent do
     resources :appointments
+
   end
 
   resources :agent_profiles, only: [:index], as: :agent do
