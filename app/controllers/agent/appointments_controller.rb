@@ -12,10 +12,11 @@ class Agent::AppointmentsController <ApplicationController
 
   def update
     @appointment = Appointment.find(params[:id])
-    @appointment.agent_profile_id = current_user.id
+    @appointment.agent_profile_id = current_user.agent_profile.id
+    binding.pry
     if @appointment.save
       flash[:notice] = "You successfully claimed this appointment"
-      redirect_to agent_appointments_path
+      redirect_to "/agent_profiles/#{current_user.agent_profile.id}/appointments"
     else
       flash[:alert] = "Sorry, that didn't work. Please try again."
       render :index
