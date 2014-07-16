@@ -31,11 +31,7 @@ class AppointmentsController <ApplicationController
     properties_near.each do |property|
       property_ids << property.id
     end
-
-    binding.pry
     @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil)
-
-
   end
 
 

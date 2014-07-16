@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+
   root 'properties#home'
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+
 
   resource :appointments, only: [:index]
   resources :properties, only: [:new, :create, :edit, :update, :index, :show, :destroy] do
