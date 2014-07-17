@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Appointment Notification</title>
+  </head>
+  <body>
+  <p><%= @user.first_name %>, There is a new appointment in your Area.</p>
+
+  <p><%= link_to "Click here", agent_profile_appointments_url(@user.agent_profile) %>to see details and claim this appointment.</p>
+
+
+
+  Best,
+  Reeally Team
+
+
+
+  </body>
+</html>

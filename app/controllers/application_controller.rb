@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
+  def route_logged_user
+    if current_user.role == "seller"
+      redirect_to properties_path
+    else
+      redirect_to agent_profile_appointments(current_user.agent_profile)
+    end
+  end
+
+
   def after_sign_in_path_for(resource)
     if current_user.role == "agent"
     "/agent_profiles/#{current_user.agent_profile.id}/appointments"

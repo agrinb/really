@@ -5,7 +5,8 @@ class ApptMailer < ActionMailer::Base
     @property = appointment.property
     @appointment = appointment
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    binding.pry
+    mail(to: @user.email, subject: 'New Appointment in Your Area.')
   end
 
   def self.send_notify_agents(appointment)
