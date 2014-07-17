@@ -12,14 +12,8 @@ Rails.application.routes.draw do
   end
   resources :users
 
-  get "/agent_profiles/:agent_id/appointments", to: "appointments#index"
-  namespace :agent do
+  resources :agent_profiles do
     resources :appointments
-
-  end
-
-  resources :agent_profiles, only: [:index], as: :agent do
-    resources :appointments, only: [:index]
   end
 
 

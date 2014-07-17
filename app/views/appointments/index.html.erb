@@ -24,7 +24,7 @@
                   <th>View Details</th>
                 </tr>
               </thead>
-                       <% binding.pry %>
+            <% if !@my_appointments.empty? %>
               <% @my_appointments.each do |appt| %>
 
                   <tbody>
@@ -33,9 +33,10 @@
                       <td><%= appt.property.address %></td>
                       <td><%= appt.visitor %></td>
                       <td><%= appt.visitor_phone%></td>
-                      <td><%= link_to "View",  agent_appointment_path(appt), class: "btn btn-primary" %></td>
+                      <td><%= link_to "View",  agent_profile_appointment_path(appt.agent_profile.id, appt), class: "btn btn-primary" %></td>
                     </tr>
                   </tbody>
+              <% end %>
             <% end %>
           </table>
         </div>
@@ -58,7 +59,7 @@
         <br>
           Instructions: <%= appt.instructions %>
       <div class="btn-group pull-right">
-          <%= link_to "Claim",  agent_appointment_path(appt),  method: :put, class: "btn btn-success" %>
+          <%= link_to "Claim",  agent_profile_appointment_path(current_user, appt),  method: :put, class: "btn btn-success" %>
         </div>
     </div>
   </div>
