@@ -100,10 +100,13 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
               <div class="form-group">
                 <%= agent_profile.label :radius, "Radius of Service" %>
-                <%= agent_profile.select :radius, options_for_select({ "5 miles" => 5, "10 miles" => 10, "15 miles" => 15, "20 miles" => 20, "30 miles" => 30}, 10) %>
+                  <%= agent_profile.select :radius,
+                    options_for_select({ "5 miles" => 5, "10 miles" => 10, "15 miles" => 15, "20 miles" => 20, "30 miles" => 30}, 10),
+                    {},
+                    { class: "form-control" }  %>
+                </div>
               </div>
             </div>
-          </div>
 
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6">

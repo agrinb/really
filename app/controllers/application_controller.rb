@@ -2,15 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter
   protect_from_forgery with: :exception
-
-  def route_logged_user
-    if current_user.role == "seller"
-      redirect_to properties_path
-    else
-      redirect_to agent_profile_appointments(current_user.agent_profile)
-    end
-  end
 
 
   def after_sign_in_path_for(resource)

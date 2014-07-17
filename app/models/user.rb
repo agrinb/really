@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :properties, dependent: :destroy
   has_one :agent_profile, dependent: :destroy
-  accepts_nested_attributes_for :agent_profile
+  accepts_nested_attributes_for :agent_profile,
+    reject_if: Proc.new { |user| user['role'] == 'seller' }
   accepts_nested_attributes_for :properties
 
   def is_agent?
