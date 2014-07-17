@@ -19,7 +19,7 @@ feature 'user registers', %Q{
       choose 'user_role_seller'
       click_button 'Register'
     end
-    # binding.pry
+
     expect(page).to_not have_content 'errors prohibited this user from being saved'
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end

@@ -29,7 +29,7 @@ class AppointmentsController <ApplicationController
     properties_near.each do |property|
       property_ids << property.id
     end
-    @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil)
+    @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil )
     @my_appointments = Appointment.where(agent_profile_id: agent.id)
   end
 

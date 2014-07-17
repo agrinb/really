@@ -5,7 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   def delete_invalid_profile
     user = User.find_by(email: params[:user][:email])
-    binding.pry
       if user.role == "seller"
         user.agent_profile.destroy
       end
