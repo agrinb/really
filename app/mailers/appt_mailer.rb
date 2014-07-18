@@ -5,7 +5,6 @@ class ApptMailer < ActionMailer::Base
     @property = appointment.property
     @appointment = appointment
     @user = user
-    binding.pry
     mail(to: @user.email, subject: 'New Appointment in Your Area.')
   end
 
