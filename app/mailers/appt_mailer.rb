@@ -4,7 +4,7 @@ class ApptMailer < ActionMailer::Base
   def notify_agents(user, appointment)
     @property = appointment.property
     @appointment = appointment
-    unless discount.nil?
+    unless user.nil?
       @user = user
       mail(to: @user.email, subject: 'New Appointment in Your Area.')
     end
