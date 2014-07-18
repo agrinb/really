@@ -4,8 +4,10 @@ class ApptMailer < ActionMailer::Base
   def notify_agents(user, appointment)
     @property = appointment.property
     @appointment = appointment
-    @user = user
-    mail(to: @user.email, subject: 'New Appointment in Your Area.')
+    unless discount.nil?
+      @user = user
+      mail(to: @user.email, subject: 'New Appointment in Your Area.')
+    end
   end
 
   def self.send_notify_agents(appointment)
