@@ -12,12 +12,8 @@
 <!-- NAVBAR START -->
 
 <%= render 'layouts/nav' %>
-<%= render partial: "layouts/flash_messages", flash: flash %>
   <div class="container">
     <div class="custom_top">
-      <% flash.each do |key, msg| %>
-        <%= msg %>
-      <% end %>
       <%= yield %>
     </div>
   </div>
