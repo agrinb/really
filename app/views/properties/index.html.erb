@@ -58,7 +58,7 @@
     <div class="panel-body">
       <div class="media col-md-3">
         <figure class="pull-left">
-          <img class="media-object img-rounded img-responsive"  src=<%= p.photo %> alt="placehold.it/350x250" >
+          <img class="media-object img-rounded img-responsive"  src=<%= p.photo %> alt="house_image" >
         </figure>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8">
@@ -66,13 +66,13 @@
               <p class="list-group-item-text"><%= p.description %></p>
               <p class="list-group-item-text">Bedrooms: <%= p.bedrooms %></p>
               <p class="list-group-item-text">Bathrooms: <%= p.bathrooms %></p>
-              <p class="list-group-item-text">Details: <%= p.details %></p>
+              <p class="list-group-item-text">Details: <%= p.details %></p><br>
       </div>
-      <div class="col-md-6 pull-right">
-        <%= link_to "Edit", edit_property_path(p), class: "btn btn-info" %>
-        <%= link_to "New Appointment", new_property_appointments_path(p), class: "btn btn-success" %>
-        <%= link_to "View", property_path(p), class: "btn btn-primary" %>
-        <%= link_to "Delete", property_path(p), method: :delete, class: "btn btn-warning" %>
+        <div class="col-md-9 pull-right">
+          <%= link_to "Edit", edit_property_path(p), class: "btn btn-info" %>
+          <%= link_to "New Appointment", new_property_appointments_path(p), class: "btn btn-success" %>
+          <%= link_to "View", property_path(p), class: "btn btn-primary" %>
+          <%= link_to "Delete", property_path(p), method: :delete, class: "btn btn-warning" %>
       </div>
     </div>
   </div>
