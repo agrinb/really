@@ -12,12 +12,12 @@ class PropertiesController < ApplicationController
   def index
     if user_signed_in?
       @properties = current_user.properties
-      @appointments = @properties.map do |prop|
+      appointments = @properties.map do |prop|
         if !prop.appointments.empty?
           prop.appointments
         end
       end
-      @appointments.flatten!
+      @appointments = appointments.compact.flatten
     else
       @properties = Property.all
     end
