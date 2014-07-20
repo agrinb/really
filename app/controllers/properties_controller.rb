@@ -17,7 +17,8 @@ class PropertiesController < ApplicationController
           prop.appointments
         end
       end
-      @appointments.compact!
+      @appointments.flatten!
+      binding.pry
     else
       @properties = Property.all
     end
