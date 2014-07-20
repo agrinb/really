@@ -18,7 +18,6 @@ class PropertiesController < ApplicationController
         end
       end
       @appointments.flatten!
-      binding.pry
     else
       @properties = Property.all
     end
