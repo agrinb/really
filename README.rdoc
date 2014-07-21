@@ -1,28 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reeally is a breakable toy that is a work in progress. It's a platform for "For Sale By Owner" 
+home sellers to find and connect with RE agents on demand. 
 
-Things you may want to cover:
+Users can 
 
-* Ruby version
+* Create/edit properties
 
-* System dependencies
+* Create/edit properties
 
-* Configuration
+* Register as Agents
 
-* Database creation
+* Agents can view appointments within their Geo-targetted radius
 
-* Database initialization
+* Claim appointments
 
-* How to run the test suite
+* Receive visito details when appointment is claimed.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Live version is at http://reeally.heroku.com
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
