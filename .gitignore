@@ -17,6 +17,5 @@
 
 # Ignore environment variables
 
-/config/initializers/carrierwave.rb
 /public/uploads
 .env
