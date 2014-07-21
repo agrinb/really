@@ -17,7 +17,7 @@ home sellers to find and connect with RE agents on demand.
 
 * Receive visitor details when appointment is claimed.
 
-**Live version is at http://reeally.heroku.com**
+Live version is at http://reeally.heroku.com
 
 
 
