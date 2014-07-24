@@ -29,8 +29,10 @@ class AppointmentsController <ApplicationController
     properties_near.each do |property|
       property_ids << property.id
     end
-    @appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil ) && meeting > Time.now
-    @my_appointments = Appointment.where(agent_profile_id: agent.id)
+    appointments = Appointment.joins(:property).where('property_id' => property_ids, agent_profile: nil )
+    @appointments = appointments.find_all { |appt| appt.meeting > Time.zone.now }
+    my_appointments = Appointment.where(agent_profile_id: agent.id)
+    @my_appointments = my_appointments.sort_by { |appt| appt.meeting  }
   end
 
   def update

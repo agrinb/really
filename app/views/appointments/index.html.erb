@@ -29,7 +29,7 @@
 
                   <tbody>
                     <tr>
-                      <td><%= appt.meeting %></td>
+                      <td><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")  %></td>
                       <td><%= appt.property.address %></td>
                       <td><%= appt.visitor %></td>
                       <td><%= appt.visitor_phone%></td>
@@ -50,7 +50,7 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="list-group-item-heading">Time: <%= appt.meeting %>
+      <h4 class="list-group-item-heading"><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")  %>
       <div class="pull-right">Zip Code: <%= appt.property.zip_code %></div></h4>
     </div>
     <div class="panel-body">
