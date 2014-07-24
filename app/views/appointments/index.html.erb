@@ -26,7 +26,6 @@
               </thead>
             <% if !@my_appointments.empty? %>
               <% @my_appointments.each do |appt| %>
-
                   <tbody>
                     <tr>
                       <td><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")  %></td>
