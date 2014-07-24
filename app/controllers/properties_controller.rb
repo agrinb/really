@@ -12,9 +12,10 @@ class PropertiesController < ApplicationController
   def index
     if user_signed_in?
       @properties = current_user.properties
-      @appointments = @properties.flat_map do |prop|
+      appointments = @properties.flat_map do |prop|
           prop.appointments.find_all { |appt| appt.meeting > Time.zone.now }
         end
+      @appointments = appointments.sort_by! { |appt| appt.meeting }
     else
       @properties = Property.all
     end

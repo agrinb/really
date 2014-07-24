@@ -27,7 +27,7 @@
                   <tbody>
                     <tr>
                       <td><%= appt.property.address %></td>
-                      <td><%= appt.meeting %></td>
+                      <td><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")    %></td>
                       <td><%= appt.visitor %></td>
                       <td><%= appt.visitor_phone%></td>
                       <% if appt.agent_profile_id != nil %>
