@@ -36,7 +36,9 @@ class PropertiesController < ApplicationController
   end
 
   def update
-
+    property = Property.find(params[:id])
+    property.update!(property_params)
+    redirect_to property
   end
 
   def show
