@@ -41,10 +41,10 @@
                   <th>Agent Phone</th>
                 </tr>
               </thead>
-              <% @property.appointments.each do |appt| %>
+              <% @appointments.each do |appt| %>
               <tbody>
                 <tr>
-                  <td><%= time_tag(appt.meeting) %></td>
+                  <td><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")  %></td>
                   <td><%= appt.visitor %></td>
                   <td><%= appt.visitor_phone%></td>
                   <% if !appt.agent_profile_id == nil %>

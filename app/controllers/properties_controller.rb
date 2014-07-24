@@ -41,6 +41,8 @@ class PropertiesController < ApplicationController
 
   def show
     @property = Property.find(params[:id])
+    appointments = @property.appointments.find_all { |appt| appt.meeting > Time.zone.now }
+    @appointments = appointments.sort_by! { |appt| appt.meeting }
   end
 
   def destroy
