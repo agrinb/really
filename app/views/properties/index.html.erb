@@ -23,11 +23,10 @@
                   <th>Agent Phone</th>
                 </tr>
               </thead>
-              <% @properties.each do |property| %>
-                <% property.appointments.each do |appt| %>
+              <% @appointments.each do |appt| %>
                   <tbody>
                     <tr>
-                      <td><%= property.address %></td>
+                      <td><%= appt.property.address %></td>
                       <td><%= appt.meeting %></td>
                       <td><%= appt.visitor %></td>
                       <td><%= appt.visitor_phone%></td>
@@ -41,7 +40,6 @@
                     </tr>
                   </tbody>
               <% end %>
-            <% end %>
           </table>
         </div>
       </div>
