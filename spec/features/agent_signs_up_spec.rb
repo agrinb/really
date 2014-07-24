@@ -16,13 +16,14 @@ feature 'agent registers', %Q{
       fill_in 'cell_phone', with: '555-666-9999'
       fill_in 'password', with: 'password15'
       fill_in 'password_confirmation', with: 'password15'
+      choose 'user_role_agent'
       fill_in 'realty', with: 'Exit Realty'
       fill_in 'agent_profile', with: 'Best in Boston'
       fill_in 'zip_code', with: '55555'
-      fill_in 'years_of_experience', with: '2'
+      select '20', from: 'user_agent_profile_attributes_radius'
       fill_in 'from_hour', with: '3'
       fill_in 'to_hour', with: '3'
-      choose 'user_role_agent'
+
       click_button 'Register'
     end
 
