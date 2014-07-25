@@ -25,32 +25,6 @@ feature 'user registers', %Q{
   end
 
 
-  scenario 'user registers successfully as agent' do
-
-    user = FactoryGirl.build(:user)
-
-    visit new_user_registration_path
-
-    within (".user_sign_up") do
-      fill_in 'first_name', with: 'user.first_name'
-      fill_in 'last_name', with: 'user.last_name'
-      fill_in 'email', with: 'mike@gmail.com'
-      fill_in 'cell_phone', with: '456-789-9875'
-      fill_in 'password', with: 'password1'
-      fill_in 'password_confirmation', with: 'password1'
-      fill_in 'zip_code', with: '11235'
-      fill_in 'years_of_experience', with: '3'
-      fill_in 'agent_profile', with: 'I love pets and snowboarding'
-      fill_in 'from_hour', with: '10'
-      fill_in 'to_hour', with: '8'
-      choose 'user_role_agent'
-      click_button 'Register'
-    end
-
-
-    expect(page).to have_content 'You have signed up successfully'
-  end
-
   scenario 'user registers with duplicate email' do
 
     user = FactoryGirl.create(:user)
@@ -62,10 +36,7 @@ feature 'user registers', %Q{
     fill_in 'password', with: 'password1'
     fill_in 'password_confirmation', with: 'password1'
     fill_in 'zip_code', with: '11235'
-    fill_in 'years_of_experience', with: '3'
-    fill_in 'agent_profile', with: 'I love pets and snowboarding'
-    fill_in 'from_hour', with: '10'
-    fill_in 'to_hour', with: '8'
+    fill_in 'cell_phone', with: '555-666-9999'
     choose 'user_role_seller'
     click_button 'Register'
 
@@ -84,11 +55,7 @@ feature 'user registers', %Q{
     fill_in 'password_confirmation', with: 'password1'
     fill_in 'cell_phone', with: 'user.cell_phone'
     fill_in 'zip_code', with: '11235'
-    fill_in 'years_of_experience', with: '3'
-    fill_in 'agent_profile', with: 'I love pets and snowboarding'
-    fill_in 'from_hour', with: '10'
-    fill_in 'to_hour', with: '8'
-    choose 'user_role_agent'
+    choose 'user_role_seller'
     click_button 'Register'
 
 
@@ -106,10 +73,6 @@ feature 'user registers', %Q{
     fill_in 'password_confirmation', with: 'password1'
     fill_in 'cell_phone', with: 'user.cell_phone'
     fill_in 'zip_code', with: '11235'
-    fill_in 'years_of_experience', with: '3'
-    fill_in 'agent_profile', with: 'I love pets and snowboarding'
-    fill_in 'from_hour', with: '10'
-    fill_in 'to_hour', with: '8'
     choose 'user_role_seller'
     click_button 'Register'
 

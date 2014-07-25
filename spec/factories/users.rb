@@ -11,7 +11,7 @@ FactoryGirl.define do
       "person#{n}@example.com"
     end
     sequence :cell_phone do |n|
-      "55#{n}-739-#{n}797"
+      "#{n}55-739-3797"
     end
 
   end
