@@ -3,7 +3,7 @@
 Reeally is a breakable toy that is a work in progress. It's a platform for "For Sale By Owner" 
 home sellers to find and connect with RE agents on demand. 
 
-Users can 
+Users can: 
 
 * Create/edit properties
 
@@ -15,7 +15,7 @@ Users can
 
 * Claim appointments
 
-* Receive visito details when appointment is claimed.
+* Receive visitor details when appointment is claimed.
 
 Live version is at http://reeally.heroku.com
 
