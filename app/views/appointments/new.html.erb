@@ -14,10 +14,14 @@
 
 <div class="container">
   <%= simple_form_for [@property, @appointment] do |f| %>
-  <%= f.error_notification %>
+
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
         <div class="form-group">
+        <div>
+          <%= f.error_notification %>
+          <%= @appointment.errors.full_messages.first if @appointment.errors.any? %>
+        </div>
         <% my_date_time = Time.now %>
           <%= f.label :meeting, "When" %>
           <div class: "datetime">

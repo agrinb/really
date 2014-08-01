@@ -63,7 +63,13 @@ feature 'user creates appointment', %Q{
     fill_in 'appointment_visitor_email', with: 'marsha@bradybunch.com'
     click_on 'Create Appointment'
 
-    expect(page).to have_content 'error'
-    expect(page).not_to have_content "2013"
+    expect(page).to have_content 'Appointment could not be saved.'
+    expect(page).not_to have_content "Marsha"
+
+    visit properties_path
+    expect(page).not_to have_content "Marsha"
+    expect(page).not_to have_content '555-111-9999'
+
+
   end
 end
