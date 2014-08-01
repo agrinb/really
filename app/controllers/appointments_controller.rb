@@ -17,6 +17,7 @@ class AppointmentsController <ApplicationController
       flash[:notice] = "Appointment created successfully."
       redirect_to property_path(@property)
     else
+      flash[:alert] = "Appointment could not be saved."
       render :new
     end
   end

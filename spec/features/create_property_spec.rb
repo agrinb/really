@@ -14,10 +14,10 @@ feature 'user signs in to create property', %Q{
 
 
   scenario "agent can't create a property" do
-    agent = FactoryGirl.create(:user, role: 'agent')
-    agent_profile = FactoryGirl.create(:agent_profileex)
-    binding.pry
-    sign_in_as(agent)
+    user1 = FactoryGirl.create(:user, role: 'agent')
+    agent = FactoryGirl.create(:agent_profile, user: user1)
+    user = agent.user
+    sign_in_as(user)
 
     expect(page).not_to have_content 'New Property'
     expect(page).to have_content 'Available appointments in your area:'

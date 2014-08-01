@@ -13,6 +13,5 @@ FactoryGirl.define do
     sequence :cell_phone do |n|
       "#{n}55-739-3797"
     end
-
   end
 end
