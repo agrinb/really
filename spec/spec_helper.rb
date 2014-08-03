@@ -12,9 +12,19 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
-#
+
+# config.before(:all) do
+#   FactoryGirl.reload
+# end
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+# FactoryGirl.definition_file_paths = [File.expand_path('../factories', __FILE__)]
+# FactoryGirl.find_definitions
+
+end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -75,4 +85,4 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
-end
+

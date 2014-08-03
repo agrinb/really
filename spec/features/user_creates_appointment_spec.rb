@@ -69,7 +69,32 @@ feature 'user creates appointment', %Q{
     visit properties_path
     expect(page).not_to have_content "Marsha"
     expect(page).not_to have_content '555-111-9999'
+  end
 
+    scenario "agent can't create a property" do
+    user1 = FactoryGirl.create(:user, role: 'agent')
+    agent = FactoryGirl.create(:agent_profile, user: user1)
+    user = agent.user
+    sign_in_as(user1)
 
+    expect(page).not_to have_content 'New Property'
+    expect(page).to have_content 'Available appointments in your area:'
+  end
+
+  scenario 'user creates multiple appointments' do
+    user = FactoryGirl.create(:user, role: 'seller')
+    sign_in_as(user)
+    property = FactoryGirl.create(:property, user: user)
+    appointment1 = FactoryGirl.create(:appointment, property: property)
+    appointment2 = FactoryGirl.create(:appointment, property: property)
+    appointment3 = FactoryGirl.create(:appointment, property: property)
+
+    visit properties_path
+    expect(page).to have_content appointment1.visitor
+    expect(page).to have_content appointment1.visitor_phone
+    expect(page).to have_content appointment2.visitor
+    expect(page).to have_content appointment2.visitor_phone
+    expect(page).to have_content appointment3.visitor
+    expect(page).to have_content appointment3.visitor_phone
   end
 end
