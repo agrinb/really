@@ -138,4 +138,35 @@ feature 'user signs in to create property', %Q{
     expect(page).to have_content 'Second Property Listing'
     expect(page).to have_content '11111'
   end
+
+  scenario 'seller can edit property' do
+
+    user = FactoryGirl.create(:user, role: 'seller')
+    prop = FactoryGirl.create(:property, user: user)
+    sign_in_as(user)
+    within('.panel-primary') do
+        click_link('Edit')
+    end
+
+    fill_in 'title', with: 'I am editting the title'
+    click_on 'Create Property'
+
+    expect(page).to have_content 'I am editting the title'
+  end
+
+  scenario 'seller can view property' do
+
+    user = FactoryGirl.create(:user, role: 'seller')
+    prop = FactoryGirl.create(:property, user: user)
+    sign_in_as(user)
+    within('.panel-primary') do
+        click_link('View')
+    end
+
+    expect(page).to have_content prop.name
+    expect(page).to have_content prop.zip_code
+    expect(page).to have_content prop.bedrooms
+    expect(page).to have_content prop.bathrooms
+    expect(page).to have_content prop.details
+  end
 end
