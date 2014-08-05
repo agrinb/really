@@ -90,7 +90,7 @@ feature 'user signs in to create property', %Q{
     expect(page).to have_content "Listed Properties"
   end
 
-   scenario 'seller wants to edit property' do
+  scenario 'seller wants to edit property' do
 
     user = FactoryGirl.create(:user, role: 'seller')
     sign_in_as(user)
@@ -100,5 +100,42 @@ feature 'user signs in to create property', %Q{
 
     expect(page).to have_content 'Edit Your Property'
     expect(page).to have_content 'Add a Photo'
+  end
+
+   scenario 'seller can create multiple properties' do
+
+    user = FactoryGirl.create(:user, role: 'seller')
+    sign_in_as(user)
+    click_on 'New Property'
+    fill_in 'title', with: 'Beautiful Two Bedroom'
+    fill_in 'description', with: 'Overlooks that amazing bridge.'
+    fill_in 'address', with: '123 Main st.'
+    fill_in 'property_city', with: 'Boston'
+    fill_in 'property_state', with: 'WY'
+    fill_in 'property_zip_code', with: '99999'
+    fill_in 'property_bedrooms', with: '4'
+    fill_in 'property_bathrooms', with: '5'
+    fill_in 'property_details', with: "New kitchen and bathroom"
+    attach_file('property_photo', File.join(Rails.root, '/spec/support/default.jpg'))
+    click_on 'Create Property'
+
+    click_on 'New Property'
+    fill_in 'title', with: 'Second Property Listing'
+    fill_in 'description', with: 'Second Listing'
+    fill_in 'address', with: '123 Main st.'
+    fill_in 'property_city', with: 'Boston'
+    fill_in 'property_state', with: 'WY'
+    fill_in 'property_zip_code', with: '11111'
+    fill_in 'property_bedrooms', with: '4'
+    fill_in 'property_bathrooms', with: '5'
+    fill_in 'property_details', with: "New kitchen and bathroom"
+    attach_file('property_photo', File.join(Rails.root, '/spec/support/default.jpg'))
+    click_on 'Create Property'
+
+    expect(page).to have_content 'Beautiful Two Bedroom'
+    expect(page).to have_content '99999'
+
+    expect(page).to have_content 'Second Property Listing'
+    expect(page).to have_content '11111'
   end
 end
