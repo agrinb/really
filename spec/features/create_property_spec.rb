@@ -169,4 +169,20 @@ feature 'user signs in to create property', %Q{
     expect(page).to have_content prop.bathrooms
     expect(page).to have_content prop.details
   end
+
+  scenario 'seller can delete property' do
+
+    user = FactoryGirl.create(:user, role: 'seller')
+    prop = FactoryGirl.create(:property, user: user)
+    sign_in_as(user)
+    within('.panel-primary') do
+        click_link('Delete')
+    end
+
+    expect(page).not_to have_content prop.name
+    expect(page).not_to have_content prop.zip_code
+    expect(page).not_to have_content prop.bedrooms
+    expect(page).not_to have_content prop.bathrooms
+    expect(page).not_to have_content prop.details
+  end
 end
