@@ -19,5 +19,5 @@ Boostrap
 JQuery
 AWS
 
-
+[![Build Status](https://travis-ci.org/agrinb/reeally.svg?branch=master)](https://travis-ci.org/agrinb/reeally)
 
