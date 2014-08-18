@@ -10,7 +10,6 @@ feature 'user signs in to create property', %Q{
     user1 = FactoryGirl.create(:user, role: 'agent')
     agent = FactoryGirl.create(:agent_profile, user: user1)
     user = agent.user
-    binding.pry
     sign_in_as(user)
 
     expect(page).not_to have_content 'New Property'

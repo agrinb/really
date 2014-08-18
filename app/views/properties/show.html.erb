@@ -43,7 +43,7 @@
               </thead>
               <% @appointments.each do |appt| %>
               <tbody>
-                <tr>
+                <tr class="appt_datails">
                   <td><%= appt.meeting.strftime("%B %d %Y, %I:%M%p")  %></td>
                   <td><%= appt.visitor %></td>
                   <td><%= appt.visitor_phone%></td>
