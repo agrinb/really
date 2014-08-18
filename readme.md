@@ -1,6 +1,6 @@
 # Really - A web app that connects FSBO real estate owners to agents and facilitates the scheduling of appointments.
 
-# [Reeally: Sell your home quickly, without the 5\% Broker fee. ](http://really.herokuapp.com/)
+# [Reeally: Sell your home quickly, without the 5% Broker fee. ](http://really.herokuapp.com/)
 
 # Log in as a member with these credentials:
 Email: example@example.com
